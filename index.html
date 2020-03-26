@@ -168,11 +168,18 @@
 
     var button = document.querySelector('button');
     var b = document.querySelector('b');
+    var timesClicked = 0;
 
     button.onclick = speak;
 
     function speak (e) {
       e.preventDefault();
+
+      timesClicked++;
+
+      if (timesClicked % thingsToDo.length === 0) {
+        shuffle(thingsToDo);
+      }
 
       var line = thingsToDo.shift();
       thingsToDo.push(line);
