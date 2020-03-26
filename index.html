@@ -144,6 +144,7 @@
       const line = thingsToDo[Math.random() * thingsToDo.length | 0];
 
       const msg = new SpeechSynthesisUtterance();
+      msg.lang = 'fi-FI';
       msg.text = line;
 
       speechSynthesis.speak(msg);
