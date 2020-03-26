@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ei mitään tekemistä!</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+      .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;      
+      }
+      button {
+        background: #66ccff;
+        padding: 3rem;
+        border: 0;
+        border-radius: 2rem;
+        font: inherit;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+<body>
+  <div class="wrapper">
+    <div>
+      <button autofocus>Ei mitään tekemistä!</button>
+      <p><i>(lähde: Pikku Kakkosen 100 ideaa)</i></p>
+    </div>
+  </div>
+  <script>
+    const thingsToDo = `Piirrä Pikku Kakkosen postiin piirustus
+    Kuuntele lastenlauluja
+    Maalaa vesiväritaideteos
+    Lue kirjaa
+    Leiki eläinlääkäriä
+    Kuvita satu tai loru
+    Leiki laululeikkejä
+    Piirrä sarjakuva
+    Väritä värityskuvia
+    Tee kollaasi aikakauslehdistä
+    Järjestä levyraati
+    Keksi oma satu
+    Järjestä oma taidenäyttely
+    Maalaa kiviä
+    Esitä näytelmä
+    Pelihetki: keksi uusi, ikioma peli
+    Tee luontoretki
+    Soita soitinta
+    Leiki kotia
+    Tee temppurata
+    Leiki erilaisia liikuntaleikkejä
+    Rakenna maja
+    Pelihetki: Korttipeli
+    Järjestä tanssinäytös
+    Pelihetki: Pikku Kakkosen sovellus
+    Esitä pantomiimia
+    Seikkaile Seikkailukoneen karttojen avulla
+    Leiki kauppaa
+    Pelihetki: Kimleikki
+    Ota valokuvia
+    Järjestä disco
+    Pelihetki: Muistipeli
+    Maalaa sormiväreillä
+    Kuuntele musiikkia
+    Leiki aarteenetsintää
+    Järjestä pehmoleluille synttärit
+    Leiki taskulampuilla pimeässä
+    Pelihetki: Pikku Kakkosen Eskari -sovellus
+    Rakenna autopesula kylppäriin tai tiskialtaaseen
+    Leiki laiva on lastattu -leikkiä
+    Rakenna palapeliä
+    Järjestä yhteislauluhetki
+    Kaiverra perunasta leimasin
+    Katseluhetki: baletti
+    Pelihetki: Lautapeli
+    Kuvaa video
+    Pelihetki: Reima Räiske
+    Askartele oma ystäväkirja
+    Pelihetki: Möllit
+    Lue tietokirjaa
+    Kuuntele satuja
+    Katseluhetki: tutustu ensihoidon ammattilaisiin
+    Tee temppurata pihalle
+    Matki eläimiä
+    Keksikää yhdessä jatkosatu
+    Opi lisää kissoista
+    Kerro arvoituksia
+    Piirrä katuliiduilla
+    Opettele tukiviittomia
+    Kerro vitsejä
+    Katseluhetki: Isot koneet
+    Loruttele
+    Järjestä oma konsertti
+    Leivo herkkuja
+    Auta ruuanlaitossa
+    Järjestä perheelle juhlat
+    Katseluhetki: katso Areenasta sinulle uutta lastenohjelmaa
+    Perusta jäätelökioski
+    Tee Tiedonjyvän tehtäviä
+    Järjestä piknik olohuoneeseen
+    Siivoa
+    Opettele taikatemppu
+    Opettele laskemaan sataan
+    Käy kylvyssä
+    Kuuntele radio-ohjelmaa
+    Leiki kampaajaa
+    Tee itse slimeä
+    Opettele viittomaan värit
+    Katseluhetki: elokuva
+    Pelaa ilmapallotennistä
+    Askartele pääsiäistipuja
+    Opi historiaa
+    Hiero äidin tai isän niskoja
+    Jumppaa leikkipuistossa
+    Istuta taimia
+    Järjestä yhteinen rentoutushetki
+    Opettele uusi taito
+    Järjestä tietokilpailu
+    Järjestä aarrejahti
+    Harjoittele pyöräilyä
+    Piirrä erilaisia muotoja
+    Muovaile muovailuvahasta
+    Leiki palloleikkejä
+    Auta vanhempia kotitöissä
+    Opettele englantia
+    Puhalla saippuakuplia
+    Askartele kirjanmerkki
+    Leiki aasinhäntää
+    Tee aamiaista
+    Askartele naamari`.split('\n');
+
+    const button = document.querySelector('button');
+
+    button.onclick = () => {
+      const line = thingsToDo[Math.random() * thingsToDo.length | 0];
+
+      const msg = new SpeechSynthesisUtterance();
+      msg.text = line;
+
+      speechSynthesis.speak(msg);
+    };
+  </script>
+</body>
+</html>
