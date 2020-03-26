@@ -165,7 +165,10 @@
     var button = document.querySelector('button');
     var b = document.querySelector('b');
 
-    button.onclick = function (e) {
+    window.addEventListener('touchstart', speak);
+    window.addEventListener('mousedown', speak);
+
+    function speak (e) {
       e.preventDefault();
 
       var line = thingsToDo.shift();
@@ -178,7 +181,7 @@
       msg.text = line;
 
       speechSynthesis.speak(msg);
-    };
+    }
 
     function shuffle (array) {
       var rnd, temp
