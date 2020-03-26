@@ -54,9 +54,9 @@
 <body>
   <div class="wrapper">
     <div>
-      <p><b> </b></p>
+      <p><b>🔈</b></p>
       <button autofocus>Ei mitään tekemistä?<br>Klikkaa tästä!</button>
-      <p><i>(laita äänet päälle, lähde: Pikku Kakkosen 100 ideaa)</i></p>
+      <p><i>(Lähde: Pikku Kakkosen 100 ideaa)</i></p>
     </div>
   </div>
   <script>
@@ -176,7 +176,7 @@
       var line = thingsToDo.shift();
       thingsToDo.push(line);
 
-      b.textContent = line;
+      b.textContent = '🔉' + line;
       
       var msg = new SpeechSynthesisUtterance();
       msg.lang = 'fi-FI';
