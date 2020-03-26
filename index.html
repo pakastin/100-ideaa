@@ -10,6 +10,9 @@
     <meta property="og:url" content="https://pakastin.github.io/100-ideaa/">
     <title>Ei mitään tekemistä!</title>
     <style>
+      html {
+        text-size-adjust: 100%;
+      }
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
@@ -34,6 +37,7 @@
         font-size: 1.375rem;
         font-weight: 500;
         color: #fff;
+        user-select: none;
       }
       p {
         font-size: .75rem;
@@ -151,7 +155,9 @@
 
     const button = document.querySelector('button');
 
-    button.onclick = () => {
+    button.onclick = (e) => {
+      e.preventDefault();
+
       const line = thingsToDo[Math.random() * thingsToDo.length | 0];
 
       const msg = new SpeechSynthesisUtterance();
