@@ -178,7 +178,7 @@
     function speak (e) {
       e.preventDefault();
 
-      if (Date.now() - lastClicked < 1000) {
+      if (Date.now() - lastClicked < 200) {
         return;
       }
 
