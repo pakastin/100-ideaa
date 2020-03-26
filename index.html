@@ -160,14 +160,16 @@
       'Askartele naamari'
     ];
 
+    shuffle(thingsToDo);
+
     var button = document.querySelector('button');
     var b = document.querySelector('b');
 
     button.onclick = function (e) {
       e.preventDefault();
 
-      var randomIndex = Math.random() * thingsToDo.length | 0;
-      var line = thingsToDo[randomIndex];
+      var line = thingsToDo.shift();
+      thingsToDo.push(line);
 
       b.textContent = line;
       
@@ -177,6 +179,19 @@
 
       speechSynthesis.speak(msg);
     };
+
+    function shuffle (array) {
+      var rnd, temp
+
+      for (var i = array.length - 1; i; i--) {
+        rnd = Math.round(Math.random() * i)
+        temp = array[i]
+        array[i] = array[rnd]
+        array[rnd] = temp
+      }
+
+      return array
+    }
   </script>
 </body>
 </html>
