@@ -46,21 +46,21 @@
         background: hsl(200, 80%, 65%);
         box-shadow: inset 0 0 5px rgba(0, 0, 0, .25);
       }
-      p {
-        font-size: .75rem;
-      }
-      b {
+      .line {
         font-size: 1rem;
         font-weight: 600;
+      }
+      .attribution {
+        font-size: .75rem;
       }
     </style>
   </head>
 <body>
   <div class="wrapper">
     <div>
-      <p><b>🔈</b></p>
-      <button autofocus>Ei mitään tekemistä?<br>Klikkaa tästä!</button>
-      <p><i>(Lähde: Pikku Kakkosen 100 ideaa)</i></p>
+      <p class="line"><span>🔈</span> <b></b></p>
+      <button autofocus>Ei mitään tekemistä?<br>Paina tästä!</button>
+      <p class="attribution"><i>(Lähde: Pikku Kakkosen 100 ideaa)</i></p>
     </div>
   </div>
   <script>
@@ -167,13 +167,21 @@
     shuffle(thingsToDo);
 
     var button = document.querySelector('button');
+    var span = document.querySelector('span');
     var b = document.querySelector('b');
     var timesClicked = 0;
+    var lastClicked = 0;
 
     button.onclick = speak;
 
     function speak (e) {
       e.preventDefault();
+
+      if (Date.now() - lastClicked < 2000) {
+        return;
+      }
+
+      lastClicked = Date.now();
 
       timesClicked++;
 
@@ -184,11 +192,19 @@
       var line = thingsToDo.shift();
       thingsToDo.push(line);
 
-      b.textContent = '🔉 ' + line;
+      b.textContent = line;
       
       var msg = new SpeechSynthesisUtterance();
       msg.lang = 'fi-FI';
       msg.text = line;
+
+      msg.onstart = function () {
+        span.textContent = '🔉';
+      }
+
+      msg.onend = function () {
+        span.textContent = '🔈';
+      }
 
       speechSynthesis.speak(msg);
     }
