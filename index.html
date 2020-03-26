@@ -2,7 +2,7 @@
 <html lang="fi">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="description" content="Pikku Kakkosen 100 ideaa puhuvana arpomiskoneena.">
     <meta property="og:title" content="Ei mitään tekemistä!">
     <meta property="og:description" content="Pikku Kakkosen 100 ideaa puhuvana arpomiskoneena.">
@@ -25,7 +25,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;      
+        text-align: center;   
       }
       button {
         background: #66ccff;
@@ -38,6 +38,7 @@
         font-weight: 500;
         color: #fff;
         user-select: none;
+        touch-action: none;
       }
       p {
         font-size: .75rem;
@@ -165,8 +166,7 @@
     var button = document.querySelector('button');
     var b = document.querySelector('b');
 
-    window.addEventListener('touchstart', speak);
-    window.addEventListener('mousedown', speak);
+    button.onclick = speak;
 
     function speak (e) {
       e.preventDefault();
