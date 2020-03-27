@@ -200,6 +200,7 @@
       var msg = new SpeechSynthesisUtterance();
       msg.lang = 'fi-FI';
       msg.text = line;
+      msg.voice = getVoice('fi-FI');
 
       msg.onstart = function () {
         span.textContent = '🔉';
@@ -224,6 +225,30 @@
 
       return array
     }
+
+    var voicesByLang = {};
+
+    function getVoice (lang) {
+      var voice = voicesByLang[lang];
+      if (voice) {
+        return voice;
+      }
+      var voices = speechSynthesis.getVoices();
+
+      voice = voices[0];
+
+      for (var i = 0; i < voices.length; i++) {
+        if (voices[i].lang === lang) {
+          voice = voices[i];
+          break;
+        }
+      }
+
+      voicesByLang[lang] = voice;
+
+      return voice;
+    }
+
   </script>
 </body>
 </html>
